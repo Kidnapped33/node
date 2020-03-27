@@ -20,14 +20,19 @@ var server = http.createServer(function (request, response) {
 
     /******** 从这里开始看，上面不要看 ************/
 
-    console.log('有个傻子发请求过来啦！路径（带查询参数）为：' + pathWithQuery)
+    console.log('有个傻傻发请求过来啦~路径（带查询参数）为：' + pathWithQuery)
 
     if (path === '/') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
         response.write(`
-        <link rel="stylesheet" href="/style">
-        <h1>你好</h1>
+        <!DOCTYPE html>
+        <head>
+            <link rel="stylesheet" href="/style">
+        </head>
+        <body>
+            <h1>你好</h1>
+        </body>
         `)
         response.end()
     } else if (path === '/style') {
@@ -46,4 +51,4 @@ var server = http.createServer(function (request, response) {
 })
 
 server.listen(port)
-console.log('监听 ' + port + ' 成功\n请用在空中转体720度然后用电饭煲打开 http://localhost:' + port)
+console.log('监听 ' + port + ' 成功\n请打开 http://localhost:' + port)
